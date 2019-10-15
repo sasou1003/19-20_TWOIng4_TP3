@@ -1,8 +1,15 @@
 
 // Fonction appelée lors du click du bouton
 function start() {
+  
+  /*alert("La ville est " + document.getElementById("city-input").value);*/
+  
+  var city = document.getElementById("city-input").value;
   // Création de l'objet apiWeather
-  const apiWeather = new API_WEATHER();
+  const apiWeather = new API_WEATHER(city);
+  
+  
+
   // Appel de la fonction fetchTodayForecast
 
   apiWeather
@@ -22,10 +29,14 @@ function start() {
       document.getElementById('today-forecast-more-info').innerHTML = description;
       document.getElementById('icon-weather-container').innerHTML = icon;
       document.getElementById('today-forecast-temp').innerHTML = `${temp}°C`;
-      
-    })
+     
+    }
+    )
     .catch(function(error) {
       // Affiche une erreur
       console.error(error);
     });
+
 }
+
+
